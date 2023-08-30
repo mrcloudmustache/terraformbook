@@ -1,6 +1,5 @@
 provider "aws" {
   region  = "us-east-2"
-  profile = "terraformbook"
 }
 
 resource "aws_instance" "example" {
@@ -14,7 +13,6 @@ terraform {
     bucket  = "terraformbook7645-state"
     key     = "workspaces-example/terraform.tfstate"
     region  = "us-east-2"
-    profile = "terraformbook"
 
     # Replace this with your DynamoDB table name!
     dynamodb_table = "terraform-up-and-running-locks"
