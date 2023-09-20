@@ -4,11 +4,15 @@
 # }
 
 # output "all_arns" {
-#     value = aws_iam_user.example[*].arn
+#     value = values(aws_iam_user.example)[*].arn
 #     description = "The ARN for all users"
 # }
 
-output "user_arns" {
-    value = module.users[*].user_arn
-    description = "The ARN pf the created IAM users"
+output "user_arn" {
+    value = values(module.users)[*].user_arn
+    description = "The ARN of the created user"
+}
+
+output "upper_names" {
+  value = [for name in var.user_names : upper(name) if length(name) < 5]
 }

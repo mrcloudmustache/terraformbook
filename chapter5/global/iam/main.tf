@@ -1,5 +1,5 @@
 provider "aws" {
-    region = "us-east-2"
+  region = "us-east-2"
 }
 
 # resource "aws_iam_user" example {
@@ -8,9 +8,9 @@ provider "aws" {
 # }
 
 module "users" {
-    source = "../../modules/landing-zone/iam-user"
+  source = "../../modules/landing-zone/iam-user"
 
-    count = length(var.user_names)
-    user_name = var.user_names[count.index]
+  for_each  = toset(var.user_names)
+  user_name = each.value
 }
 
