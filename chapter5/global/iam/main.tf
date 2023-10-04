@@ -7,12 +7,16 @@ provider "aws" {
 #     name = var.user_names[count.index]
 # }
 
-module "users" {
-  source = "../../modules/landing-zone/iam-user"
-
-  for_each  = toset(var.names)
-  user_name = each.value
-
-  give_neo_cloudwatch_full_access = true
+resource "aws_iam_user" "existing_user" {
+  name = "terraformbook"
 }
+
+# module "users" {
+#   source = "../../modules/landing-zone/iam-user"
+
+#   for_each  = toset(var.names)
+#   user_name = each.value
+
+#   give_neo_cloudwatch_full_access = true
+# }
 

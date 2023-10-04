@@ -24,7 +24,7 @@ module "webserver_cluster" {
   source = "../../../../modules/services/webserver-cluster"
 
   ami = "ami-0fb653ca2d3203ac1"
-  server_text = "Go Giants Go!!!"
+  server_text = "J E T S jets jets jets"
 
   cluster_name           = "webservers-prod"
   db_remote_state_bucket = "terraformbook7645-state"
